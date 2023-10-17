@@ -165,8 +165,8 @@ export default function DataTableDemo() {
   return (
     <div className=" bg-[#D7DBDC] h-screen">
 
-      <h1 className="xl:text-6xl text-3xl text-center font-extrabold pt-20">Engineering's Day</h1>
-      <div className="flex justify-center mt-5 ">
+      <h1 className="xl:text-6xl text-3xl text-center font-extrabold pt-5">Engineering's Day</h1>
+      <div className="flex justify-center items-center">
 
         <Button className="text-center bg-blue-700 px-5 py-6 mt-10 hover:right-4 hover:bg-blue-700 text-white rounded-xl" >
       <a href="./Project">Add new</a>
@@ -178,7 +178,7 @@ export default function DataTableDemo() {
       </div>
       <div className="flex justify-center">
 
-        <div className="w-[90%] lg:w-[60%] h-[47%] py-5 px-5 border-2 mt-10  bg-white rounded-xl">
+        <div className="w-[90%] lg:w-[60%] h-[47%] py-5 px-5 border-2 mt-10  bg-white rounded-xl shadow-2xl">
           <div className="flex items-center md:mb-5">
             <Input
               placeholder="Filter generations..."
