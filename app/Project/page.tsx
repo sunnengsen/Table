@@ -4,10 +4,7 @@ import * as React from "react"
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
+
 } from "@/components/ui/card"
 
 import { Label } from "@/components/ui/label"
@@ -42,7 +39,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Input } from "@/components/ui/input"
 import {
   Table,
   TableBody,
@@ -63,7 +59,6 @@ const data: Payment[] = [
     no: 1,
     score: 60,
     complete: true,
-    member: ["MeySorng", "Veha", "sron"]
 
   },
   {
@@ -76,7 +71,6 @@ const data: Payment[] = [
     no: 2,
     score: 100,
     complete: false,
-    member: ["MeySorng", "Veha"]
 
   },
   {
@@ -89,7 +83,6 @@ const data: Payment[] = [
     no: 3,
     score: 50,
     complete: true,
-    member: ["MeySorng", "Veha", "sron"]
 
   },
   {
@@ -102,7 +95,6 @@ const data: Payment[] = [
     no: 4,
     score: 98,
     complete: false,
-    member: ["MeySorng", "Veha", "sron"]
 
   },
   {
@@ -115,7 +107,6 @@ const data: Payment[] = [
     no: 5,
     score: 74,
     complete: true,
-    member: ["MeySorng", "Veha", "sron"]
   },
 ]
 export type Payment = {
@@ -128,7 +119,6 @@ export type Payment = {
   no: number
   score: number
   complete: boolean
-  member: Array<string>
 }
 export const columns: ColumnDef<Payment>[] = [
   
@@ -147,7 +137,6 @@ export const columns: ColumnDef<Payment>[] = [
     accessorKey: "id",
     header: () => <div className="text-center hidden md:block" >ID</div>,
     cell: ({ row }) => {
-      const id = parseInt(row.getValue("id"))
       return (
         <div className="capitalize text-center">{row.getValue("id")}</div>
       )
@@ -165,7 +154,6 @@ export const columns: ColumnDef<Payment>[] = [
     accessorKey: "leader",
     header: () => <div className="text-center hidden md:block" >Leader</div>,
     cell: ({ row }) => {
-      const leader = parseInt(row.getValue("leader"))
       return (
         <div className="capitalize text-center">{row.getValue("leader")}</div>
       )
@@ -189,17 +177,15 @@ export const columns: ColumnDef<Payment>[] = [
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="center" className="bg-gray-50 text-black">
-            <DropdownMenuLabel>
-              
-            </DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
-            {row.getValue("member")}
-              
+            <DropdownMenuLabel>Member</DropdownMenuLabel>
+            <DropdownMenuItem> 
             </DropdownMenuItem>
-            <DropdownMenuItem>Delete</DropdownMenuItem>
-            <DropdownMenuItem>Delete</DropdownMenuItem>
-            <DropdownMenuItem>Delete</DropdownMenuItem>
+            <DropdownMenuItem>Meng Srun</DropdownMenuItem>
+            <DropdownMenuItem>Mey Sorng</DropdownMenuItem>
+            <DropdownMenuItem>Rithy</DropdownMenuItem>
+            <DropdownMenuItem>Veha</DropdownMenuItem>
+
 
           </DropdownMenuContent>
         </DropdownMenu>
@@ -288,11 +274,13 @@ export default function TabsDemo() {
   return (
     <div className="flex justify-center bg-gray-200 w-full items-center h-screen">
 
-      <Tabs defaultValue="account" className="md:w-[70%] w-[90%] shadow-2xl  rounded-xl bg-white">
-        <TabsList className="flex grid-cols-2 mb-5 rounded-xl border-none h-8 justify-center my-4 ">
-          <TabsTrigger value="account" className="  w-1/2 h-14 mx-1 rounded-xl  ">Presentation</TabsTrigger>
-          <TabsTrigger value="password" className="w-1/2 h-14 mx-1 rounded-xl ">Poster</TabsTrigger>
+      <Tabs defaultValue="account" className="md:w-[70%] w-[90%] shadow-2xl mx-20  rounded-xl bg-white">
+        <TabsList className="flex grid-cols-2 mb-5 rounded-xl border-none h-10 justify-center my-4  text-white">
+          <TabsTrigger value="account" className="   h-14 w-1/2 ml-5 rounded-xl  text-black border-blue-100 border-2 text-md shadow-xl">Presentation</TabsTrigger>
+          <TabsTrigger value="password" className=" h-14 w-1/2 mr-5 rounded-xl  text-black border-blue-100 border-2 text-md shadow-xl">Poster</TabsTrigger>
         </TabsList>
+        <div className="present">
+
         <TabsContent value="account" >
           <Card className=" w-full">
 
@@ -325,8 +313,8 @@ export default function TabsDemo() {
                     </DropdownMenu>
                   </div>
                   <div className="md:mt-[-20px] mt-[-47px]">
-                    <Table className="border-0">
-                      <TableHeader className="">
+                    <Table className="border-0 ">
+                      <TableHeader className="md:bg-gray-300">
                         {table.getHeaderGroups().map((headerGroup) => (
                           <TableRow className="" key={headerGroup.id} >
                             {headerGroup.headers.map((header) => {
@@ -344,13 +332,13 @@ export default function TabsDemo() {
                           </TableRow>
                         ))}
                       </TableHeader>
-                      <TableBody >
+                      <TableBody className="test hover:">
                         {table.getRowModel().rows?.length ? (
                           table.getRowModel().rows.map((row) => (
                             <TableRow
                               key={row.id}
                               data-state={row.getIsSelected() && "selected"}
-                              className={`overflow-hidden ${row.getValue("complete")? 'bg-green-200' : 'bg-red-200'}`}>
+                              className={`overflow-hidden ${row.getValue("complete")? 'bg-green-100' : 'bg-red-100'}`}>
                               {row.getVisibleCells().map((cell) => (
                                 <TableCell key={cell.id
                                 }>
@@ -383,6 +371,7 @@ export default function TabsDemo() {
 
           </Card>
         </TabsContent>
+        </div>
         <TabsContent value="password">
           <Card className="rounded-b-xl">
             
@@ -416,7 +405,7 @@ export default function TabsDemo() {
                   </div>
                   <div className=" ">
                     <Table className="border-0">
-                      <TableHeader className="">
+                      <TableHeader className="md:bg-gray-300">
                         {table.getHeaderGroups().map((headerGroup) => (
                           <TableRow className="" key={headerGroup.id} >
                             {headerGroup.headers.map((header) => {
@@ -440,7 +429,7 @@ export default function TabsDemo() {
                             <TableRow
                               key={row.id}
                               data-state={row.getIsSelected() && "selected"}
-                              className={`overflow-hidden ${row.getValue("complete")? 'bg-blue-200' : 'bg-red-200'}`}>
+                              className={`overflow-hidden ${row.getValue("complete")? 'bg-green-100' : 'bg-red-100'}`}>
                               {row.getVisibleCells().map((cell) => (
                                 <TableCell key={cell.id
                                 }>
