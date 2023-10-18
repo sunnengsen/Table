@@ -290,8 +290,8 @@ export default function TabsDemo() {
 
       <Tabs defaultValue="account" className="md:w-[70%] w-[90%] shadow-2xl  rounded-xl bg-white">
         <TabsList className="flex grid-cols-2 mb-5 rounded-xl border-none h-8 justify-center my-4 ">
-          <TabsTrigger value="account" className="   w-1/2 h-14 mx-1 rounded-xl active:bg-red-600 ">Presentation</TabsTrigger>
-          <TabsTrigger value="password" className=" w-1/2 h-14 mx-1 rounded-xl">Poster</TabsTrigger>
+          <TabsTrigger value="account" className="  w-1/2 h-14 mx-1 rounded-xl  ">Presentation</TabsTrigger>
+          <TabsTrigger value="password" className="w-1/2 h-14 mx-1 rounded-xl ">Poster</TabsTrigger>
         </TabsList>
         <TabsContent value="account" >
           <Card className=" w-full">
@@ -473,6 +473,7 @@ export default function TabsDemo() {
           </Card>
         </TabsContent>
       </Tabs>
+      
     </div>
   )
 }

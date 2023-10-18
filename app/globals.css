@@ -2,3 +2,8 @@
 @tailwind components;
 @tailwind utilities;
  
+.data-\[state\=active\]\:shadow-sm[data-state=active] {
+    background-color: rgb(203, 203, 203) !important;
+    transform: scale(0.9);
+    transition: all ease-in-out 1s;
+}
